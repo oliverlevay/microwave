@@ -1,9 +1,9 @@
 .m-container {
-  opacity: 85%;
+  opacity: 100%;
   position: absolute;
   display: flex;
   background-color: white;
-  min-width: 48rem;
+  min-width: 50rem;
   min-height: 25rem;
   border-radius: 2rem;
 }
@@ -13,7 +13,7 @@
   right: 0;
   min-height: 22rem;
   border-top-right-radius: 2rem;
-  min-width: 10rem;
+  min-width: 12rem;
   background-color: rgb(150, 140, 128);
 }
 
@@ -22,8 +22,8 @@
   border-radius: 100rem;
   min-width: 5rem;
   min-height: 5rem;
-  bottom: 6rem;
-  left: 2rem;
+  bottom: 4rem;
+  right: 4rem;
   background-color: white;
 }
 
@@ -32,7 +32,7 @@
   border-radius: 100rem;
   min-width: 2rem;
   min-height: 2rem;
-  top: 5rem;
+  top: 7rem;
   left: 4.3rem;
   background-color: white;
 }
@@ -46,7 +46,7 @@
   margin-right: auto;
   background-color: red;
   width: 5px;
-  height: 10px;
+  height: 2rem;
 }
 
 .m-window {
@@ -57,4 +57,91 @@
   left: 2rem;
   top: 2rem;
   background-color: black;
+}
+
+.m-screen {
+  position: absolute;
+  left: 4rem;
+  top: 4rem;
+  bottom: 4rem;
+  right: 4rem;
+  opacity: 80%;
+  background-color: black;
+}
+
+.m-screen-lit {
+  opacity: 30%;
+  background-color: yellow;
+}
+
+.m-popcorn {
+  position: absolute;
+  left: 4rem;
+  top: 4rem;
+  bottom: 4rem;
+  right: 4rem;
+}
+
+.m-time-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  position: absolute;
+  min-height: 3rem;
+  min-width: 5rem;
+  top: 2rem;
+  left: 2rem;
+  color: lime;
+  user-select: none;
+}
+
+.m-effect-text {
+  position: absolute;
+  margin: 0;
+  color: black;
+  font-size: 0.6rem;
+  font-weight:bold;
+  width: 3rem;
+  text-align: center;
+}
+
+.m-stop {
+  left: -2rem;
+  top: 4rem;
+}
+
+.m-keep-warm {
+  left: -3rem;
+  top: 2rem;
+}
+
+.m-defrost {
+  left: -2rem;
+  top: 0
+}
+
+.m-350w {
+  left: 0rem;
+  top: -1rem;
+}
+
+.m-500w {
+  right: 0rem;
+  top: -1rem;
+}
+
+.m-650w {
+  right: -2rem;
+  top: 0
+}
+
+.m-750w {
+  right: -3rem;
+  top: 2rem;
+}
+
+.m-jet {
+  right: -2rem;
+  top: 4rem;
 }
