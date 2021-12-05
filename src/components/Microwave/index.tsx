@@ -26,7 +26,6 @@ const Microwave = () => {
     new Audio("/soundEffects/microwave-running.wav")
   );
   const [effect, setEffect] = useState(Effect["750w"]);
-  console.log(effect);
   const [time, setTime] = useState(degreesToMinutes(0));
   const [finishedRotating, setFinishedRotating] = useState(false);
   const [screenIsLit, setScreenIsLit] = useState(false);
@@ -34,6 +33,7 @@ const Microwave = () => {
   useEffect(() => {
     microwaveFinished.load();
     microwaveRunning.load();
+    setEffect(localStorage.getItem("effect") as Effect);
     Draggable.create("#knob", {
       type: "rotation",
       inertia: true,
@@ -98,6 +98,10 @@ const Microwave = () => {
       microwaveRunning.currentTime = 0;
     }
   }, [finishedRotating, microwaveRunning, time.minutes]);
+
+  useEffect(() => {
+    localStorage.setItem("effect", effect);
+  }, [effect]);
 
   return (
     <div className="m-container">
