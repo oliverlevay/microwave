@@ -7,6 +7,17 @@ import degreesToMinutes from "./degreesToMinutes";
 
 gsap.registerPlugin(Draggable);
 
+enum Effect {
+  stop = "-120deg",
+  "keep-warm" = "-95deg",
+  defrost = "-60deg",
+  "350w" = "-25deg",
+  "500w" = "25deg",
+  "650w" = "60deg",
+  "750w" = "87deg",
+  jet = "120deg",
+}
+
 const Microwave = () => {
   const [microwaveFinished] = useState(
     new Audio("/soundEffects/microwave-finished.wav")
@@ -14,6 +25,8 @@ const Microwave = () => {
   const [microwaveRunning] = useState(
     new Audio("/soundEffects/microwave-running.wav")
   );
+  const [effect, setEffect] = useState(Effect["750w"]);
+  console.log(effect);
   const [time, setTime] = useState(degreesToMinutes(0));
   const [finishedRotating, setFinishedRotating] = useState(false);
   const [screenIsLit, setScreenIsLit] = useState(false);
@@ -96,14 +109,52 @@ const Microwave = () => {
           <div className="m-top-indicator" />
         </div>
         <div className="m-effect-knob">
-          <p className="m-effect-text m-stop">STOP</p>
-          <p className="m-effect-text m-keep-warm">KEEP WARM</p>
-          <p className="m-effect-text m-defrost">DEFROST</p>
-          <p className="m-effect-text m-350w">350w</p>
-          <p className="m-effect-text m-500w">500w</p>
-          <p className="m-effect-text m-650w">650w</p>
-          <p className="m-effect-text m-750w">750w</p>
-          <p className="m-effect-text m-jet">JET</p>
+          <div
+            className="m-effect-dial"
+            style={{ transform: `rotate(${effect})` }}
+          />
+          <button
+            className="m-effect-text m-keep-warm"
+            onClick={() => setEffect(Effect["keep-warm"])}
+          >
+            KEEP WARM
+          </button>
+          <button
+            className="m-effect-text m-defrost"
+            onClick={() => setEffect(Effect.defrost)}
+          >
+            DEFROST
+          </button>
+          <button
+            className="m-effect-text m-350w"
+            onClick={() => setEffect(Effect["350w"])}
+          >
+            350w
+          </button>
+          <button
+            className="m-effect-text m-500w"
+            onClick={() => setEffect(Effect["500w"])}
+          >
+            500w
+          </button>
+          <button
+            className="m-effect-text m-650w"
+            onClick={() => setEffect(Effect["650w"])}
+          >
+            650w
+          </button>
+          <button
+            className="m-effect-text m-750w"
+            onClick={() => setEffect(Effect["750w"])}
+          >
+            750w
+          </button>
+          <button
+            className="m-effect-text m-jet"
+            onClick={() => setEffect(Effect.jet)}
+          >
+            JET
+          </button>
         </div>
       </div>
       <div className="m-window">

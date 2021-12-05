@@ -16,16 +16,6 @@
   background-color: rgb(150, 140, 128);
 }
 
-.m-effect-knob {
-  position: absolute;
-  border-radius: 100rem;
-  min-width: 5rem;
-  min-height: 5rem;
-  bottom: 4rem;
-  right: 4rem;
-  background-color: white;
-}
-
 .m-time-knob {
   position: absolute;
   border-radius: 100rem;
@@ -95,13 +85,42 @@
   user-select: none;
 }
 
+.m-effect-knob {
+  position: absolute;
+  border-radius: 100rem;
+  min-width: 5rem;
+  min-height: 5rem;
+  bottom: 4rem;
+  right: 4rem;
+  background-color: white;
+}
+
+.m-effect-dial {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.125rem;
+  bottom: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1rem;
+  background-color: grey;
+  border-radius: 1rem;
+  transform-origin: bottom;
+}
+
 .m-effect-text {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
   position: absolute;
   margin: 0;
   color: black;
   font-size: 0.6rem;
   font-weight:bold;
-  width: 3rem;
+  width: 2.5rem;
   text-align: center;
 }
 
@@ -116,23 +135,23 @@
 }
 
 .m-defrost {
-  left: -2rem;
-  top: 0
+  left: -2.5rem;
+  top: 0.5rem;
 }
 
 .m-350w {
-  left: 0rem;
+  left: -0.5rem;
   top: -1rem;
 }
 
 .m-500w {
-  right: 0rem;
+  right: -0.5rem;
   top: -1rem;
 }
 
 .m-650w {
-  right: -2rem;
-  top: 0
+  right: -2.5rem;
+  top: 0.5rem;
 }
 
 .m-750w {
