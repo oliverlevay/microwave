@@ -1,0 +1,60 @@
+.m-container {
+  opacity: 85%;
+  position: absolute;
+  display: flex;
+  background-color: white;
+  min-width: 48rem;
+  min-height: 25rem;
+  border-radius: 2rem;
+}
+
+.m-control-panel {
+  position: absolute;
+  right: 0;
+  min-height: 22rem;
+  border-top-right-radius: 2rem;
+  min-width: 10rem;
+  background-color: rgb(150, 140, 128);
+}
+
+.m-effect-knob {
+  position: absolute;
+  border-radius: 100rem;
+  min-width: 5rem;
+  min-height: 5rem;
+  bottom: 6rem;
+  left: 2rem;
+  background-color: white;
+}
+
+.m-time-knob {
+  position: absolute;
+  border-radius: 100rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  top: 5rem;
+  left: 4.3rem;
+  background-color: white;
+}
+
+.m-top-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+  width: 5px;
+  height: 10px;
+}
+
+.m-window {
+  position: absolute;
+  min-width: 35rem;
+  min-height: 20rem;
+  border-radius: 2rem;
+  left: 2rem;
+  top: 2rem;
+  background-color: black;
+}

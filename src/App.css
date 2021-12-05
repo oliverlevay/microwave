@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.App-main {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -35,4 +35,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.microwave-img {
+  position: absolute;
+  max-width: 48rem;
+  max-height: 25rem;
 }
