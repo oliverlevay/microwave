@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { Draggable } from "gsap/all";
 import "react-rotatable/dist/css/rotatable.min.css";
@@ -6,8 +6,6 @@ import "./Microwave.css";
 import degreesToMinutes from "./degreesToMinutes";
 
 gsap.registerPlugin(Draggable);
-
-const rotationSnap = 30;
 
 const Microwave = () => {
   const [microwaveFinished] = useState(
@@ -52,7 +50,7 @@ const Microwave = () => {
         }
       },
     });
-  }, []);
+  }, [microwaveFinished, microwaveRunning]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
