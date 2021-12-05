@@ -119,42 +119,49 @@ const Microwave = () => {
           />
           <button
             className="m-effect-text m-keep-warm"
+            style={{ color: effect === Effect["keep-warm"] ? "darkred" : "" }}
             onClick={() => setEffect(Effect["keep-warm"])}
           >
             KEEP WARM
           </button>
           <button
             className="m-effect-text m-defrost"
+            style={{ color: effect === Effect.defrost ? "darkred" : "" }}
             onClick={() => setEffect(Effect.defrost)}
           >
             DEFROST
           </button>
           <button
             className="m-effect-text m-350w"
+            style={{ color: effect === Effect["350w"] ? "darkred" : "" }}
             onClick={() => setEffect(Effect["350w"])}
           >
             350w
           </button>
           <button
             className="m-effect-text m-500w"
+            style={{ color: effect === Effect["500w"] ? "darkred" : "" }}
             onClick={() => setEffect(Effect["500w"])}
           >
             500w
           </button>
           <button
             className="m-effect-text m-650w"
+            style={{ color: effect === Effect["650w"] ? "darkred" : "" }}
             onClick={() => setEffect(Effect["650w"])}
           >
             650w
           </button>
           <button
             className="m-effect-text m-750w"
+            style={{ color: effect === Effect["750w"] ? "darkred" : "" }}
             onClick={() => setEffect(Effect["750w"])}
           >
             750w
           </button>
           <button
             className="m-effect-text m-jet"
+            style={{ color: effect === Effect.jet ? "darkred" : "" }}
             onClick={() => setEffect(Effect.jet)}
           >
             JET
