@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { Draggable } from "gsap/all";
 import "react-rotatable/dist/css/rotatable.min.css";
+import ChangeCircleOutlinedIcon from "@mui/icons-material/ChangeCircleOutlined";
 import "./Microwave.css";
 import degreesToMinutes from "./degreesToMinutes";
+import AccessTime from "@mui/icons-material/AccessTime";
 
 gsap.registerPlugin(Draggable);
 
@@ -122,7 +124,10 @@ const Microwave = () => {
           {end ? "E n d" : `${time.minutes}:${time.seconds}`}
         </div>
         <div className="m-time-knob" id="knob">
-          <div className="m-top-indicator" />
+          <ChangeCircleOutlinedIcon style={{ color: "black" }} />
+        </div>
+        <div className="m-time-icon">
+          <AccessTime style={{ color: "black" }} fontSize="small" />
         </div>
         <div className="m-effect-knob">
           <div
@@ -178,6 +183,7 @@ const Microwave = () => {
           >
             JET
           </button>
+          <p className="m-effect-label">Effect</p>
         </div>
       </div>
       <div className="m-window">

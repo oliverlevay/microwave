@@ -14,16 +14,26 @@
   border-top-right-radius: 2rem;
   min-width: 12rem;
   background-color: rgb(150, 140, 128);
+  color: black;
 }
 
 .m-time-knob {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 100rem;
-  min-width: 2rem;
-  min-height: 2rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   top: 7rem;
   left: 4.3rem;
   background-color: white;
+}
+
+.m-time-icon {
+  position: absolute;
+  top: 4.8rem;
+  left: 4.9rem;
 }
 
 .m-top-indicator {
@@ -175,4 +185,12 @@
 .m-jet {
   right: -2rem;
   top: 4rem;
+}
+
+.m-effect-label {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  margin-right: 1.25rem;
+  font-size: 1rem;
 }
