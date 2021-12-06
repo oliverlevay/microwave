@@ -85,7 +85,7 @@ const Microwave = () => {
         const knob = document.getElementById("knob");
         if (knob) {
           const rotation = Number(knob.getAttribute("rotation"));
-          if (!isNaN(rotation) && rotation - 1 >= 0) {
+          if (!isNaN(rotation) && rotation - 1 > 0) {
             knob.setAttribute("rotation", (rotation - 1).toString());
             knob.style.transform = `rotate(${rotation - 1}deg)`;
             setTime(degreesToMinutes(rotation - 1, false));
