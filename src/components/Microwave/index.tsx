@@ -44,10 +44,8 @@ const Microwave = () => {
       const rotation = Number(knob.getAttribute("rotation")) + 15;
       const _time = degreesToMinutes(rotation);
       setTime(_time);
-      knob.setAttribute(
-        "rotation",
-        (Math.round(rotation / 15) * 15).toString()
-      );
+      knob.style.transform = `rotate(${rotation}deg)`;
+      knob.setAttribute("rotation", (Math.round(rotation / 5) * 5).toString());
     }
   }, []);
 
@@ -65,9 +63,10 @@ const Microwave = () => {
       } else {
         const _time = degreesToMinutes(rotation);
         setTime(_time);
+        knob.style.transform = `rotate(${rotation}deg)`;
         knob.setAttribute(
           "rotation",
-          (Math.round(rotation / 15) * 15).toString()
+          (Math.round(rotation / 5) * 5).toString()
         );
       }
     }
@@ -108,7 +107,7 @@ const Microwave = () => {
             setTime(_time);
             knob.setAttribute(
               "rotation",
-              (Math.round(degrees / 15) * 15).toString()
+              (Math.round(degrees / 5) * 5).toString()
             );
           } else {
             knob.style.transform = `rotate(0)`;
