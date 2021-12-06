@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import gsap from "gsap";
 import { Draggable } from "gsap/all";
 import "react-rotatable/dist/css/rotatable.min.css";
 import ChangeCircleOutlinedIcon from "@mui/icons-material/ChangeCircleOutlined";
 import "./Microwave.css";
 import degreesToMinutes from "./degreesToMinutes";
+import { IconButton } from "@mui/material";
 import AccessTime from "@mui/icons-material/AccessTime";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
 gsap.registerPlugin(Draggable);
 
@@ -32,6 +35,44 @@ const Microwave = () => {
   const [finishedRotating, setFinishedRotating] = useState(false);
   const [screenIsLit, setScreenIsLit] = useState(false);
   const [end, setEnd] = useState(false);
+
+  const add15Seconds = useCallback(() => {
+    const knob = document.getElementById("knob");
+    if (knob) {
+      setEnd(false);
+      setFinishedRotating(true);
+      const rotation = Number(knob.getAttribute("rotation")) + 15;
+      const _time = degreesToMinutes(rotation);
+      setTime(_time);
+      knob.setAttribute(
+        "rotation",
+        (Math.round(rotation / 15) * 15).toString()
+      );
+    }
+  }, []);
+
+  const remove15Seconds = useCallback(() => {
+    const knob = document.getElementById("knob");
+    if (knob) {
+      setEnd(false);
+      setFinishedRotating(true);
+      const rotation = Number(knob.getAttribute("rotation")) - 15;
+      if (rotation <= 0) {
+        knob.setAttribute("rotation", "0");
+        setTime({ minutes: "", seconds: "" });
+        setScreenIsLit(false);
+        setFinishedRotating(false);
+      } else {
+        const _time = degreesToMinutes(rotation);
+        setTime(_time);
+        knob.setAttribute(
+          "rotation",
+          (Math.round(rotation / 15) * 15).toString()
+        );
+      }
+    }
+  }, []);
+
   useEffect(() => {
     microwaveFinished.load();
     microwaveRunning.load();
@@ -123,9 +164,21 @@ const Microwave = () => {
         <div className="m-time-panel">
           {end ? "E n d" : `${time.minutes}:${time.seconds}`}
         </div>
+        <IconButton
+          style={{ position: "absolute", left: "1.5rem", top: "7rem" }}
+          onClick={remove15Seconds}
+        >
+          <RemoveCircleOutlineIcon style={{ color: "black" }} />
+        </IconButton>
         <div className="m-time-knob" id="knob">
           <ChangeCircleOutlinedIcon style={{ color: "black" }} />
         </div>
+        <IconButton
+          style={{ position: "absolute", left: "7rem", top: "7rem" }}
+          onClick={add15Seconds}
+        >
+          <AddCircleOutlineIcon style={{ color: "black" }} />
+        </IconButton>
         <div className="m-time-icon">
           <AccessTime style={{ color: "black" }} fontSize="small" />
         </div>
