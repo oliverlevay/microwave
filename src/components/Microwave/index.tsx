@@ -33,12 +33,23 @@ const Microwave = () => {
   useEffect(() => {
     microwaveFinished.load();
     microwaveRunning.load();
-    setEffect(localStorage.getItem("effect") as Effect);
+    if (localStorage.getItem("effect")) {
+      setEffect(localStorage.getItem("effect") as Effect);
+    }
     Draggable.create("#knob", {
       type: "rotation",
       inertia: true,
       onDragEnd: () => {
-        setFinishedRotating(true);
+        const knob = document.getElementById("knob");
+        if (knob) {
+          const transform = knob.style.transform;
+          const degrees = Number(
+            transform?.split("rotate(")[1]?.replace("deg)", "")
+          );
+          if (degrees > 0) {
+            setFinishedRotating(true);
+          }
+        }
       },
       onDrag: () => {
         const knob = document.getElementById("knob");
@@ -57,8 +68,9 @@ const Microwave = () => {
               (Math.round(degrees / 15) * 15).toString()
             );
           } else {
+            knob.style.transform = `rotate(0)`;
+            setTime({ minutes: "", seconds: "" });
             setScreenIsLit(false);
-            knob.style.transform = "rotate(0)";
           }
         }
       },
@@ -71,7 +83,7 @@ const Microwave = () => {
         const knob = document.getElementById("knob");
         if (knob) {
           const rotation = Number(knob.getAttribute("rotation"));
-          if (!isNaN(rotation) && rotation - 1 > 0) {
+          if (!isNaN(rotation) && rotation - 1 >= 0) {
             knob.setAttribute("rotation", (rotation - 1).toString());
             knob.style.transform = `rotate(${rotation - 1}deg)`;
             setTime(degreesToMinutes(rotation - 1, false));
@@ -169,7 +181,12 @@ const Microwave = () => {
         </div>
       </div>
       <div className="m-window">
-        <img className="m-popcorn" src="/images/popcorn.jpg" alt="Popcorn" />
+        <img
+          className="m-popcorn"
+          src="/images/popcorn.png"
+          alt="Popcorn"
+          style={{ animationPlayState: screenIsLit ? "running" : "paused" }}
+        />
         <div className={`m-screen ${screenIsLit && "m-screen-lit"}`} />
       </div>
     </div>
